@@ -42,11 +42,17 @@ def main():
 
         with col3:
             st.subheader("Podcast Guest")
-            st.write(podcast_info['podcast_guest']['name'])
+            try:
+              st.write(podcast_info['podcast_guest']['name'])
+            except TypeError as e:
+              st.write("Guest Speaker not found on Wikipedia")
 
         with col4:
             st.subheader("Podcast Guest Details")
-            st.write(podcast_info["podcast_guest"]['summary'])
+            try:
+              st.write(podcast_info["podcast_guest"]['summary'])
+            except TypeError as e:
+              st.write("Guest Speaker not found on Wikipedia")
 
         # Display the five key moments
         st.subheader("Key Moments")
