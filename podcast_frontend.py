@@ -18,7 +18,7 @@ def main():
     if selected_podcast:
 
         podcast_info = available_podcast_info[selected_podcast]
-
+        print(f"Podcast info: {podcast_info}")
         # Right section - Newsletter content
         st.header("Newsletter Content")
 
@@ -43,6 +43,7 @@ def main():
         with col3:
             st.subheader("Podcast Guest")
             try:
+              print(f"Podcast guest name: {podcast_info['podcast_guest']['name']}")
               st.write(podcast_info['podcast_guest']['name'])
             except TypeError as e:
               st.write("Guest Speaker not found on Wikipedia")
@@ -50,6 +51,7 @@ def main():
         with col4:
             st.subheader("Podcast Guest Details")
             try:
+              print(podcast_info['podcast_guest']['summary'])
               st.write(podcast_info["podcast_guest"]['summary'])
             except TypeError as e:
               st.write("Guest Speaker not found on Wikipedia")
